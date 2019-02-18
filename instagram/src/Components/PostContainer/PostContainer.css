@@ -1,0 +1,23 @@
+.post-container {
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  margin: 25px auto;
+  max-width: 600px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 1% 3%;
+}
+
+.post-thumb {
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.post-media img {
+  max-width: 100%;
+}
