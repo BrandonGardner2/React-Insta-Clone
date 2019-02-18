@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import Comment from "./Comment";
 
 const CommentSection = props => {
-  let { comments, timestamp, likes } = props;
+  const [likes, updateLikes] = useState(props.likes);
+  const [comments, updateComments] = useState(props.comments);
+
+  const { timestamp } = props;
   return (
     <div className="comment-section">
       <div className="social-icons">
         <button>Heart</button>
         <button>Chat</button>
+        <p>{likes} likes</p>
       </div>
       <div className="comments">
         {comments.map((comment, index) => {

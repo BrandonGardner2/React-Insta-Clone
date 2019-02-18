@@ -10,6 +10,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <SearchBar />
       {posts.map((post, index) => {
         return <PostContainer key={index} post={post} />;
       })}
