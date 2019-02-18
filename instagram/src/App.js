@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import dummyData from "./dummy-data";
 import "./App.css";
 
-import dummyData from "./dummy-data";
+import SearchBar from "./Components/SearchBar/SearchBar";
+import PostContainer from "./Components/PostContainer/PostContainer";
 
 const App = () => {
+  const [posts, updatePosts] = useState(dummyData);
+
   return (
     <div className="App">
-      <h2>Instagram</h2>
-      <p>Wow</p>
+      {posts.map((post, index) => {
+        return <PostContainer key={index} post={post} />;
+      })}
     </div>
   );
 };
