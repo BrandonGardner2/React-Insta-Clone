@@ -4,12 +4,10 @@ import "./CommentSection.css";
 
 import Comment from "./Comment";
 import Likes from "./Likes";
-import { REFUSED } from "dns";
+import AddComment from "./AddComment";
 
 const CommentSection = props => {
   const [likes, updateLikes] = useState(props.likes);
-  const [comments, updateComments] = useState(props.comments);
-
   const toggleLike = e => {
     if (e.target.classList.contains("far")) {
       updateLikes(likes + 1);
@@ -20,6 +18,13 @@ const CommentSection = props => {
       e.target.classList.remove("fas");
       e.target.classList.add("far");
     }
+  };
+
+  const [comments, updateComments] = useState(props.comments);
+  const addComment = (e, comment) => {
+    e.preventDefault();
+    updateComments([...comments, comment]);
+    console.log(comments);
   };
 
   const { timestamp } = props;
@@ -34,11 +39,14 @@ const CommentSection = props => {
         </a>
         <Likes likes={likes} />
       </div>
+
       <div className="comments">
         {comments.map((comment, index) => {
           return <Comment comment={comment} key={index} />;
         })}
       </div>
+
+      <AddComment addComment={addComment} />
     </div>
   );
 };
