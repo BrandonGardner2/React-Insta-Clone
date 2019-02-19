@@ -10,7 +10,7 @@ const SearchBar = props => {
   return (
     <div className="search-bar-wrapper">
       <div className="search-bar">
-        <div className="logo">
+        <div className="logo" onClick={props.resetPosts}>
           <img src={CameraLogo} alt="Camera logo" />
           <span>|</span>
           <img src={IGLogo} alt="Instagram logo" />
@@ -33,7 +33,8 @@ const SearchBar = props => {
 };
 
 SearchBar.propTypes = {
-  filterPosts: PropTypes.func.isRequired
+  filterPosts: PropTypes.func.isRequired,
+  resetPosts: PropTypes.func.isRequired
 };
 
 export default SearchBar;
