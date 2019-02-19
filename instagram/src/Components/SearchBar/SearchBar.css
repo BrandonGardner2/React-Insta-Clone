@@ -1,8 +1,43 @@
+.search-bar-wrapper {
+  background-color: white;
+  height: 70px;
+  border-bottom: 1px solid lightgray;
+  width: 100vw;
+}
+
 .search-bar {
   display: flex;
+  height: 100%;
+  width: 700px;
   margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-field input {
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-end;
 }
 
 .logo img {
   height: 30px;
+  margin: 0 10px;
+}
+
+.logo img:first-child {
+  margin-left: 0;
+}
+
+.logo span {
+  font-size: 32px;
+}
+
+.social-btn {
+  font-size: 24px;
+  font-weight: lighter;
+  margin: 0 10px;
 }

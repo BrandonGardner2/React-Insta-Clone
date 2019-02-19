@@ -1,0 +1,32 @@
+.comment-section {
+  padding: 2% 2.5%;
+}
+
+.reaction-btn {
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.fas.fa-heart {
+  color: palevioletred;
+}
+
+.hidden {
+  display: none;
+}
+
+.likes {
+  margin-top: 2px;
+}
+
+.comments {
+  margin: 10px 0;
+}
+
+.comment {
+  margin: 2px 0;
+}
+
+.comment strong {
+  margin-right: 0.5rem;
+}
