@@ -1,17 +1,28 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const SearchField = props => {
   const [text, setText] = useState("");
   return (
-    <div className="search-field">
+    <form
+      className="search-field"
+      onSubmit={e => {
+        props.filterPosts(e, text);
+        setText("");
+      }}
+    >
       <input
         type="text"
         placeholder="search"
         onChange={e => setText(e.target.value)}
         value={text}
       />
-    </div>
+    </form>
   );
+};
+
+SearchField.propTypes = {
+  filterPosts: PropTypes.func.isRequired
 };
 
 export default SearchField;

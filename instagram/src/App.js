@@ -16,9 +16,19 @@ const App = () => {
     }
   }, []);
 
+  const filterPosts = (e, text) => {
+    e.preventDefault();
+    if (text !== "") {
+      const filtered = posts.filter(post => post.username.includes(text));
+      updatePosts(filtered);
+    } else {
+      updatePosts(dummyData);
+    }
+  };
+
   return (
     <div className="App">
-      <SearchBar />
+      <SearchBar filterPosts={filterPosts} />
       {posts.map((post, index) => {
         return <PostContainer key={index} post={post} />;
       })}

@@ -5,6 +5,7 @@ import "./CommentSection.css";
 import Comment from "./Comment";
 import Likes from "./Likes";
 import AddComment from "./AddComment";
+import TimeStamp from "./TimeStamp";
 
 const CommentSection = props => {
   const [likes, updateLikes] = useState(props.likes);
@@ -31,12 +32,8 @@ const CommentSection = props => {
   return (
     <div className="comment-section">
       <div className="social-icons">
-        <a className="reaction-btn" onClick={e => toggleLike(e)}>
-          <i className="far fa-heart" />
-        </a>
-        <a className="reaction-btn">
-          <i className="far fa-comment" />
-        </a>
+        <i className="far fa-heart reaction-btn" onClick={e => toggleLike(e)} />
+        <i className="far fa-comment reaction-btn" />
         <Likes likes={likes} />
       </div>
 
@@ -44,8 +41,8 @@ const CommentSection = props => {
         {comments.map((comment, index) => {
           return <Comment comment={comment} key={index} />;
         })}
+        <TimeStamp timestamp={timestamp} />
       </div>
-
       <AddComment addComment={addComment} />
     </div>
   );

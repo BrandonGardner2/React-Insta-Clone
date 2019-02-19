@@ -1,11 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import IGLogo from "../../assets/iglogo.png";
 import CameraLogo from "../../assets/cameralogo.svg";
 import "./SearchBar.css";
 
 import SearchField from "./SearchField";
 
-const SearchBar = () => {
+const SearchBar = props => {
   return (
     <div className="search-bar-wrapper">
       <div className="search-bar">
@@ -14,7 +15,7 @@ const SearchBar = () => {
           <span>|</span>
           <img src={IGLogo} alt="Instagram logo" />
         </div>
-        <SearchField />
+        <SearchField filterPosts={props.filterPosts} />
         <div className="action-btns">
           <span className="social-btn">
             <i className="far fa-compass" />
@@ -29,6 +30,10 @@ const SearchBar = () => {
       </div>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  filterPosts: PropTypes.func.isRequired
 };
 
 export default SearchBar;
