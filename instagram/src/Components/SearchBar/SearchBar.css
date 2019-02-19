@@ -2,13 +2,15 @@
   background-color: white;
   height: 70px;
   border-bottom: 1px solid lightgray;
-  width: 100vw;
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
 .search-bar {
   display: flex;
   height: 100%;
-  width: 700px;
+  max-width: 700px;
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
@@ -42,4 +44,10 @@
   font-size: 24px;
   font-weight: lighter;
   margin: 0 10px;
+}
+
+@media screen and (max-width: 550px) {
+  .search-field {
+    display: none;
+  }
 }
