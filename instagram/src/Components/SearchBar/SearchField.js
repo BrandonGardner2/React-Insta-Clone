@@ -13,7 +13,7 @@ const SearchField = props => {
     >
       <input
         type="text"
-        placeholder="search"
+        placeholder="Search"
         onChange={e => setText(e.target.value)}
         value={text}
       />

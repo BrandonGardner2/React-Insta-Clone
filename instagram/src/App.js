@@ -15,7 +15,7 @@ const App = () => {
       updateInitialized(true);
       updatePosts(dummyData);
     }
-  }, []);
+  });
 
   const filterPosts = (e, text) => {
     e.preventDefault();
@@ -24,7 +24,6 @@ const App = () => {
     };
     const fuse = new Fuse(dummyData, options);
     if (text !== "") {
-      // const filtered = posts.filter(post => post.username.includes(text));
       const filtered = fuse.search(text);
       updatePosts(filtered);
     } else {
