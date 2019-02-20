@@ -10,9 +10,7 @@ const loginConditional = LogInPage => InstaFeed => props => {
   const [authenticated, updateAuthenticated] = useState(getAuth);
 
   if (authenticated) {
-    return (
-      <InstaFeed updateAuthenticated={updateAuthenticated} getAuth={getAuth} />
-    );
+    return <InstaFeed />;
   } else {
     return (
       <LogInPage updateAuthenticated={updateAuthenticated} getAuth={getAuth} />
