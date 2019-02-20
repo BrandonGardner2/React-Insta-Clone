@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import "./CommentSection.css";
 
@@ -28,12 +28,18 @@ const CommentSection = props => {
     console.log(comments);
   };
 
+  const inputRef = useRef(null);
+
+  const focusRef = () => {
+    inputRef.current.focus();
+  };
+
   const { timestamp } = props;
   return (
     <div className="comment-section">
       <div className="social-icons">
         <i className="far fa-heart reaction-btn" onClick={e => toggleLike(e)} />
-        <i className="far fa-comment reaction-btn" />
+        <i className="far fa-comment reaction-btn" onClick={focusRef} />
         <Likes likes={likes} />
       </div>
 
@@ -43,7 +49,7 @@ const CommentSection = props => {
         })}
         <TimeStamp timestamp={timestamp} />
       </div>
-      <AddComment addComment={addComment} />
+      <AddComment addComment={addComment} ref={inputRef} />
     </div>
   );
 };

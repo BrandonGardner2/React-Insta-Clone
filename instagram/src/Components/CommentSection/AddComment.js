@@ -1,8 +1,15 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, {
+  useState,
+  useImperativeHandle,
+  forwardRef,
+  useRef
+} from "react";
 
-const AddComment = props => {
+const AddComment = (props, ref) => {
   const [input, updateInput] = useState("");
+
+  const inputRef = useRef(null);
+  useImperativeHandle(ref, () => inputRef.current);
 
   const formPayload = () => {
     return {
@@ -24,13 +31,10 @@ const AddComment = props => {
         placeholder="Add a comment.."
         value={input}
         onChange={e => updateInput(e.target.value)}
+        ref={inputRef}
       />
     </form>
   );
 };
 
-AddComment.propTypes = {
-  addComment: PropTypes.func.isRequired
-};
-
-export default AddComment;
+export default forwardRef(AddComment);

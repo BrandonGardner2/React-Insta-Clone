@@ -10,7 +10,6 @@ const App = () => {
   const [posts, updatePosts] = useState([]);
 
   const saveToLocalStorage = () => {
-    console.log(posts);
     localStorage.setItem("posts", JSON.stringify(posts));
   };
 
