@@ -26,21 +26,24 @@ const AddComment = (props, ref) => {
   };
 
   return (
-    <form
-      className="add-comment"
-      onSubmit={e => {
-        props.addComment(e, formPayload());
-        updateInput("");
-      }}
-    >
-      <input
-        type="text"
-        placeholder="Add a comment.."
-        value={input}
-        onChange={e => updateInput(e.target.value)}
-        ref={inputRef}
-      />
-    </form>
+    <div className="add-comment-form">
+      <form
+        className="add-comment"
+        onSubmit={e => {
+          props.addComment(e, formPayload());
+          updateInput("");
+        }}
+      >
+        <input
+          type="text"
+          placeholder="Add a comment.."
+          value={input}
+          onChange={e => updateInput(e.target.value)}
+          ref={inputRef}
+        />
+      </form>
+      <i className="fas fa-ellipsis-h" />
+    </div>
   );
 };
 

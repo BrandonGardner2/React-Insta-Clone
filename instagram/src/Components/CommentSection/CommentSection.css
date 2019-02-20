@@ -36,15 +36,30 @@
   color: gray;
 }
 
+.add-comment-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .add-comment {
   margin: 15px 0;
   display: flex;
   align-items: center;
+  width: 90%;
 }
 
 .add-comment input,
 .add-comment input:focus {
   border: none;
   outline: none;
-  width: 90%;
+  width: 100%;
+}
+
+.fa-ellipsis-h {
+  cursor: pointer;
+  width: 10%;
+  font-size: 1rem;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 2px;
 }
