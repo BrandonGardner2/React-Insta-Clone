@@ -8,14 +8,19 @@ import PostContainer from "./Components/PostContainer/PostContainer";
 
 const App = () => {
   const [posts, updatePosts] = useState([]);
-  const [initialized, updateInitialized] = useState(false);
+
+  const saveToLocalStorage = () => {
+    console.log(posts);
+    localStorage.setItem("posts", JSON.stringify(posts));
+  };
 
   useEffect(() => {
-    if (!initialized) {
-      updateInitialized(true);
-      updatePosts(dummyData);
-    }
-  });
+    updatePosts(dummyData);
+    window.addEventListener("beforeunload", saveToLocalStorage);
+    return () => {
+      window.removeEventListener("beforeunload", saveToLocalStorage);
+    };
+  }, []);
 
   const filterPosts = (e, text) => {
     e.preventDefault();
