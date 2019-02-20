@@ -10,11 +10,6 @@ const InstaFeed = () => {
 
   useEffect(() => {
     updatePosts(dummyData);
-
-    return () => {
-      console.log("we here");
-      localStorage.clear();
-    };
   }, []);
 
   const filterPosts = (e, text) => {
