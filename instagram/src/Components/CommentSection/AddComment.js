@@ -15,9 +15,7 @@ const AddComment = (props, ref) => {
     let user = localStorage.getItem("user");
     try {
       user = JSON.parse(user);
-    } catch (e) {
-      console.log("Oh crap!");
-    }
+    } catch (e) {}
     return user;
   };
   const formPayload = () => {

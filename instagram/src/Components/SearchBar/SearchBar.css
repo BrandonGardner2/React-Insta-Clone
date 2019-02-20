@@ -20,6 +20,10 @@
   text-align: center;
 }
 
+.search-field input:focus {
+  outline: none;
+}
+
 .logo {
   cursor: pointer;
   display: flex;

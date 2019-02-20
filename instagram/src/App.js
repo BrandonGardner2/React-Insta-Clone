@@ -6,12 +6,15 @@ import LogInPage from "./Components/LogIn/LogInPage";
 
 const App = () => {
   useEffect(() => {
-    console.log("hello, i mounted");
     return () => {
       localStorage.clear();
     };
   }, []);
-  return <Result />;
+  return (
+    <div className="App">
+      <Result />
+    </div>
+  );
 };
 
 const Result = loginConditional(LogInPage)(InstaFeed);

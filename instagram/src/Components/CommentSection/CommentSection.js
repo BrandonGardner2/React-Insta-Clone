@@ -25,7 +25,6 @@ const CommentSection = props => {
   const addComment = (e, comment) => {
     e.preventDefault();
     updateComments([...comments, comment]);
-    console.log(comments);
   };
 
   const inputRef = useRef(null);

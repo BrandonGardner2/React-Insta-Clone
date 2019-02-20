@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import IGLogo from "../../assets/iglogo.png";
+import "./LogIn.css";
 
 const LogInPage = props => {
   const [userText, updateUserText] = useState("");
@@ -6,26 +8,33 @@ const LogInPage = props => {
 
   const updateAuth = e => {
     e.preventDefault();
-    localStorage.setItem("user", userText);
-    localStorage.setItem("password", passwordText);
-    props.updateAuthenticated(props.getAuth());
+    if (userText !== "" && passwordText !== "") {
+      localStorage.setItem("user", userText);
+      localStorage.setItem("password", passwordText);
+      props.updateAuthenticated(props.getAuth());
+    } else {
+      alert("Please fill out the required fields.");
+    }
   };
   return (
-    <form onSubmit={updateAuth}>
-      <input
-        type="text"
-        placeholder="Username"
-        value={userText}
-        onChange={e => updateUserText(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={passwordText}
-        onChange={e => updatePasswordText(e.target.value)}
-      />
-      <button>Log In</button>
-    </form>
+    <div className="login-container">
+      <form className="login-form" onSubmit={updateAuth}>
+        <img src={IGLogo} alt="Instagram logo" />
+        <input
+          type="text"
+          placeholder="Username"
+          value={userText}
+          onChange={e => updateUserText(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={passwordText}
+          onChange={e => updatePasswordText(e.target.value)}
+        />
+        <button>Log In</button>
+      </form>
+    </div>
   );
 };
 
