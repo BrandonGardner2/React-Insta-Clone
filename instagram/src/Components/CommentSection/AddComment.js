@@ -4,6 +4,31 @@ import React, {
   forwardRef,
   useRef
 } from "react";
+import styled from "styled-components";
+
+const AddCommentComponent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const AddCommentForm = styled.form`
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  width: 90%;
+`;
+
+const AddCommentInput = styled.input`
+  border: none;
+  outline: none;
+  width: 100%;
+  &:focus {
+    border: none;
+    outline: none;
+    width: 100%;
+  }
+`;
 
 const AddComment = (props, ref) => {
   const [input, updateInput] = useState("");
@@ -25,24 +50,23 @@ const AddComment = (props, ref) => {
   };
 
   return (
-    <div className="add-comment-form">
-      <form
-        className="add-comment"
+    <AddCommentComponent>
+      <AddCommentForm
         onSubmit={e => {
           props.addComment(e, formPayload());
           updateInput("");
         }}
       >
-        <input
+        <AddCommentInput
           type="text"
           placeholder="Add a comment.."
           value={input}
           onChange={e => updateInput(e.target.value)}
           ref={inputRef}
         />
-      </form>
+      </AddCommentForm>
       <i className="fas fa-ellipsis-h" />
-    </div>
+    </AddCommentComponent>
   );
 };
 

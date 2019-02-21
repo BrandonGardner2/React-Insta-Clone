@@ -1,58 +1,12 @@
-.comment-section {
-  padding: 2% 2.5%;
-  padding-bottom: 0;
-}
-
 .reaction-btn {
   cursor: pointer;
   font-size: 24px;
   margin-right: 20px;
+  margin-bottom: 5px;
 }
 
 .fas.fa-heart {
   color: #fb3958;
-}
-
-.likes {
-  margin-top: 2px;
-}
-
-.comments {
-  border-bottom: 1px solid lightgray;
-  margin: 10px 0;
-}
-
-.comment {
-  margin: 2px 0;
-}
-
-.comment strong {
-  margin-right: 0.5rem;
-}
-
-.timestamp {
-  margin: 5px 0;
-  font-size: 0.9rem;
-  color: gray;
-}
-
-.add-comment-form {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.add-comment {
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-  width: 90%;
-}
-
-.add-comment input,
-.add-comment input:focus {
-  border: none;
-  outline: none;
-  width: 100%;
 }
 
 .fa-ellipsis-h {

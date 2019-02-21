@@ -1,11 +1,25 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
 import "./CommentSection.css";
 
 import Comment from "./Comment";
 import Likes from "./Likes";
 import AddComment from "./AddComment";
 import TimeStamp from "./TimeStamp";
+
+const CommentSectionComponent = styled.div`
+  padding: 2% 2.5%;
+  padding-bottom: 0;
+`;
+
+const SocialIcons = styled.div``;
+
+const Comments = styled.div`
+  border-bottom: 1px solid lightgray;
+  margin: 10px 0;
+`;
 
 const CommentSection = props => {
   const [likes, updateLikes] = useState(props.likes);
@@ -35,21 +49,21 @@ const CommentSection = props => {
 
   const { timestamp } = props;
   return (
-    <div className="comment-section">
-      <div className="social-icons">
+    <CommentSectionComponent>
+      <SocialIcons>
         <i className="far fa-heart reaction-btn" onClick={e => toggleLike(e)} />
         <i className="far fa-comment reaction-btn" onClick={focusRef} />
         <Likes likes={likes} />
-      </div>
+      </SocialIcons>
 
-      <div className="comments">
+      <Comments>
         {comments.map((comment, index) => {
           return <Comment comment={comment} key={index} />;
         })}
         <TimeStamp timestamp={timestamp} />
-      </div>
+      </Comments>
       <AddComment addComment={addComment} ref={inputRef} />
-    </div>
+    </CommentSectionComponent>
   );
 };
 
