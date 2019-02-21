@@ -10,6 +10,7 @@ const App = () => {
       localStorage.clear();
     };
   }, []);
+
   return (
     <div className="App">
       <Result />
