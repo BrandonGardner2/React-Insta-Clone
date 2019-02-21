@@ -12,10 +12,11 @@ const AddComment = (props, ref) => {
   useImperativeHandle(ref, () => inputRef.current);
 
   const curUser = () => {
-    let user = localStorage.getItem("user");
-    try {
-      user = JSON.parse(user);
-    } catch (e) {}
+    let token = localStorage.getItem("token");
+    new Promise(() => {
+      token = JSON.parse(token);
+    });
+    const user = token.user;
     return user;
   };
   const formPayload = () => {
