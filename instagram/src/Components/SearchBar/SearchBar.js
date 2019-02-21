@@ -3,32 +3,79 @@ import PropTypes from "prop-types";
 import IGLogo from "../../assets/iglogo.png";
 import CameraLogo from "../../assets/cameralogo.svg";
 import "./SearchBar.css";
+import styled from "styled-components";
 
 import SearchField from "./SearchField";
 
+const SearchBarWrapper = styled.div`
+  background-color: white;
+  height: 70px;
+  border-bottom: 1px solid lightgray;
+  position: sticky;
+  top: 0;
+  width: 100%;
+`;
+
+const SearchBarComponent = styled.div`
+  display: flex;
+  height: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Logo = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+`;
+
+const LogoImg = styled.img`
+  height: 30px;
+  margin: 0 10px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+`;
+
+const LogoSpan = styled.span`
+  font-size: 32px;
+`;
+
+const ActionBtns = styled.div``;
+
+const SocialBtn = styled.span`
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: lighter;
+  margin: 0 10px;
+`;
+
 const SearchBar = props => {
   return (
-    <div className="search-bar-wrapper">
-      <div className="search-bar">
-        <div className="logo" onClick={props.resetPosts}>
-          <img src={CameraLogo} alt="Camera logo" />
-          <span>|</span>
-          <img src={IGLogo} alt="Instagram logo" />
-        </div>
+    <SearchBarWrapper>
+      <SearchBarComponent>
+        <Logo onClick={props.resetPosts}>
+          <LogoImg src={CameraLogo} alt="Camera logo" />
+          <LogoSpan>|</LogoSpan>
+          <LogoImg src={IGLogo} alt="Instagram logo" />
+        </Logo>
         <SearchField filterPosts={props.filterPosts} />
-        <div className="action-btns">
-          <span className="social-btn">
+        <ActionBtns>
+          <SocialBtn>
             <i className="far fa-compass" />
-          </span>
-          <span className="social-btn">
+          </SocialBtn>
+          <SocialBtn>
             <i className="far fa-heart" />
-          </span>
-          <span className="social-btn">
+          </SocialBtn>
+          <SocialBtn>
             <i className="far fa-user-circle" />
-          </span>
-        </div>
-      </div>
-    </div>
+          </SocialBtn>
+        </ActionBtns>
+      </SearchBarComponent>
+    </SearchBarWrapper>
   );
 };
 
