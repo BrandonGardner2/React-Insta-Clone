@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
 import IGLogo from "../../assets/iglogo.png";
 import CameraLogo from "../../assets/cameralogo.svg";
-import "./SearchBar.css";
-import styled from "styled-components";
 
 import SearchField from "./SearchField";
 
