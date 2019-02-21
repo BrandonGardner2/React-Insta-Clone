@@ -31,12 +31,12 @@ const InstaFeed = () => {
   };
 
   return (
-    <div className="App">
+    <React.Fragment>
       <SearchBar filterPosts={filterPosts} resetPosts={resetPosts} />
       {posts.map((post, index) => {
         return <PostContainer key={index} post={post} />;
       })}
-    </div>
+    </React.Fragment>
   );
 };
 

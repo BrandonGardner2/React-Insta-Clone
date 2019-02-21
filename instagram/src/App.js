@@ -1,14 +1,17 @@
 import React from "react";
-import "./App.css";
+import styled from "styled-components";
+
 import loginConditional from "./Components/HigherOrderComponents/loginConditional";
 import InstaFeed from "./Components/InstaFeed/InstaFeed";
 import LogInPage from "./Components/LogIn/LogInPage";
 
+const AppComponent = styled.div``;
+
 const App = () => {
   return (
-    <div className="App">
+    <AppComponent>
       <Result />
-    </div>
+    </AppComponent>
   );
 };
 

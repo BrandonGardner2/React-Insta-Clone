@@ -1,8 +1,35 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./PostContainer.css";
+import styled from "styled-components";
 
 import CommentSection from "../CommentSection/CommentSection";
+
+const PostContainerComponent = styled.div`
+  background-color: white;
+  border: 1px solid lightgrey;
+  display: flex;
+  flex-direction: column;
+  margin: 25px auto;
+  max-width: 600px;
+`;
+
+const PostHeader = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 1% 3%;
+`;
+
+const PostHeaderImg = styled.img`
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+`;
+
+const PostMedia = styled.div``;
+
+const PostMediaImg = styled.img`
+  max-width: 100%;
+`;
 
 const PostContainer = props => {
   const {
@@ -14,18 +41,18 @@ const PostContainer = props => {
     comments
   } = props.post;
   return (
-    <div className="post-container">
-      <div className="post-header">
-        <img className="post-thumb" src={thumbnailUrl} alt="Thumbnail" />
+    <PostContainerComponent>
+      <PostHeader>
+        <PostHeaderImg src={thumbnailUrl} alt="Thumbnail" />
         <p>
           <strong>{username}</strong>
         </p>
-      </div>
-      <div className="post-media">
-        <img className="post-image" src={imageUrl} alt="Post content" />
-      </div>
+      </PostHeader>
+      <PostMedia>
+        <PostMediaImg src={imageUrl} alt="Post content" />
+      </PostMedia>
       <CommentSection comments={comments} timestamp={timestamp} likes={likes} />
-    </div>
+    </PostContainerComponent>
   );
 };
 
