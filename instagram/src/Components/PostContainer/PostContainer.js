@@ -9,7 +9,7 @@ const PostContainerComponent = styled.div`
   border: 1px solid lightgrey;
   display: flex;
   flex-direction: column;
-  margin: 25px auto;
+  margin: 75px auto;
   max-width: 600px;
 `;
 
