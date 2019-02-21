@@ -9,8 +9,6 @@ const LogInPage = props => {
   const updateAuth = e => {
     e.preventDefault();
     if (userText !== "" && passwordText !== "") {
-      // localStorage.setItem("user", userText);
-      // localStorage.setItem("password", passwordText);
       localStorage.setItem(
         "token",
         JSON.stringify({
