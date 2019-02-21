@@ -2,8 +2,6 @@ import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import "./CommentSection.css";
-
 import Comment from "./Comment";
 import Likes from "./Likes";
 import AddComment from "./AddComment";
@@ -21,17 +19,24 @@ const Comments = styled.div`
   margin: 10px 0;
 `;
 
+const ReactionBtn = styled.i`
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+`;
+
 const CommentSection = props => {
   const [likes, updateLikes] = useState(props.likes);
   const toggleLike = e => {
-    if (e.target.classList.contains("far")) {
+    if (e.target.style.fontWeight !== "600") {
       updateLikes(likes + 1);
-      e.target.classList.remove("far");
-      e.target.classList.add("fas");
+      e.target.style.fontWeight = "600";
+      e.target.style.color = "#fb3958";
     } else {
       updateLikes(likes - 1);
-      e.target.classList.remove("fas");
-      e.target.classList.add("far");
+      e.target.style.fontWeight = "300";
+      e.target.style.color = "black";
     }
   };
 
@@ -51,8 +56,8 @@ const CommentSection = props => {
   return (
     <CommentSectionComponent>
       <SocialIcons>
-        <i className="far fa-heart reaction-btn" onClick={e => toggleLike(e)} />
-        <i className="far fa-comment reaction-btn" onClick={focusRef} />
+        <ReactionBtn className="far fa-heart" onClick={e => toggleLike(e)} />
+        <ReactionBtn className="far fa-comment" onClick={focusRef} />
         <Likes likes={likes} />
       </SocialIcons>
 

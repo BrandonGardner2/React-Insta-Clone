@@ -30,6 +30,15 @@ const AddCommentInput = styled.input`
   }
 `;
 
+const MenuDots = styled.i`
+  cursor: pointer;
+  width: 10%;
+  font-size: 1rem;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 2px;
+`;
+
 const AddComment = (props, ref) => {
   const [input, updateInput] = useState("");
 
@@ -65,7 +74,7 @@ const AddComment = (props, ref) => {
           ref={inputRef}
         />
       </AddCommentForm>
-      <i className="fas fa-ellipsis-h" />
+      <MenuDots className="fas fa-ellipsis-h" />
     </AddCommentComponent>
   );
 };

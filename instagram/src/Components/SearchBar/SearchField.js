@@ -18,7 +18,6 @@ const SearchField = props => {
   const [text, setText] = useState("");
   return (
     <SearchFieldComponent
-      className="search-field"
       onSubmit={e => {
         props.filterPosts(e, text);
         setText("");
