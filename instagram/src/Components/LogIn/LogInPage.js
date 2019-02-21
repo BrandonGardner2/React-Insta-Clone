@@ -11,17 +11,15 @@ const LogInPage = props => {
     if (userText !== "" && passwordText !== "") {
       // localStorage.setItem("user", userText);
       // localStorage.setItem("password", passwordText);
-      new Promise(() => {
-        localStorage.setItem(
-          "token",
-          JSON.stringify({
-            user: userText,
-            password: passwordText,
-            now: Date.now(),
-            ttl: 600000
-          })
-        );
-      });
+      localStorage.setItem(
+        "token",
+        JSON.stringify({
+          user: userText,
+          password: passwordText,
+          now: Date.now(),
+          ttl: 600000
+        })
+      );
       props.updateAuthenticated(props.getAuth());
     } else {
       alert("Please fill out the required fields.");

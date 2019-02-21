@@ -13,9 +13,7 @@ const AddComment = (props, ref) => {
 
   const curUser = () => {
     let token = localStorage.getItem("token");
-    new Promise(() => {
-      token = JSON.parse(token);
-    });
+    token = JSON.parse(token);
     const user = token.user;
     return user;
   };
